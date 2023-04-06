@@ -5,12 +5,16 @@ from typing_extensions import Never, ParamSpec, TypeVarTuple, Unpack
 from funcs.typing import (
     Binary,
     Nullary,
+    Quaternary,
+    Ternary,
     Unary,
     UnpackBinary,
     UnpackNullary,
     UnpackQuaternary,
     UnpackTernary,
     UnpackUnary,
+    UnpackVariable,
+    Variable,
 )
 
 __all__ = (
@@ -81,19 +85,51 @@ def complement(predicate: Callable[P, bool]) -> Callable[P, bool]:
     return negate
 
 
-def unpack_unary(unary: Unary[T, R]) -> UnpackUnary[T, R]:
-    def unpack(items: Tuple[T]) -> R:
-        (t,) = items
-
-        return unary(t)
+def unpack_nullary(function: Nullary[R]) -> UnpackNullary[R]:
+    def unpack(items: EmptyTuple) -> R:
+        return function()
 
     return unpack
 
 
-def unpack_binary(binary: Binary[T, U, R]) -> UnpackBinary[T, U, R]:
+def unpack_unary(function: Unary[T, R]) -> UnpackUnary[T, R]:
+    def unpack(items: Tuple[T]) -> R:
+        (t,) = items
+
+        return function(t)
+
+    return unpack
+
+
+def unpack_binary(function: Binary[T, U, R]) -> UnpackBinary[T, U, R]:
     def unpack(items: Tuple[T, U]) -> R:
         (t, u) = items
 
-        return binary(t, u)
+        return function(t, u)
+
+    return unpack
+
+
+def unpack_ternary(function: Ternary[T, U, V, R]) -> UnpackTernary[T, U, V, R]:
+    def unpack(items: Tuple[T, U, V]) -> R:
+        (t, u, v) = items
+
+        return function(t, u, v)
+
+    return unpack
+
+
+def unpack_quaternary(function: Quaternary[T, U, V, W, R]) -> UnpackQuaternary[T, U, V, W, R]:
+    def unpack(items: Tuple[T, U, V, W]) -> R:
+        (t, u, v, w) = items
+
+        return function(t, u, v, w)
+
+    return unpack
+
+
+def unpack_variable(function: Variable[Ts, R]) -> UnpackVariable[Ts, R]:
+    def unpack(items: Tuple[Unpack[Ts]]) -> R:
+        return function(*items)
 
     return unpack
