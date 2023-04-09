@@ -33,6 +33,8 @@ __all__ = (
     "AsyncGenericPredicate",
     "is_instance",
     "is_subclass",
+    "is_none",
+    "is_not_none",
 )
 
 AnyError: TypeAlias = BaseException

@@ -1,16 +1,20 @@
 from typing import Tuple, TypeVar
 
-from funcs.typing import (Binary, EmptyTuple, Nullary, Quaternary, Ternary,
-                          Unary, UnpackBinary, UnpackNullary, UnpackQuaternary,
-                          UnpackTernary, UnpackUnary)
-
-__all__ = (
-    "unpack_nullary",
-    "unpack_unary",
-    "unpack_binary",
-    "unpack_ternary",
-    "unpack_quaternary",
+from funcs.typing import (
+    Binary,
+    EmptyTuple,
+    Nullary,
+    Quaternary,
+    Ternary,
+    Unary,
+    UnpackBinary,
+    UnpackNullary,
+    UnpackQuaternary,
+    UnpackTernary,
+    UnpackUnary,
 )
+
+__all__ = ("unpack_nullary", "unpack_unary", "unpack_binary", "unpack_ternary", "unpack_quaternary")
 
 T = TypeVar("T")
 U = TypeVar("U")
@@ -54,9 +58,7 @@ def unpack_ternary(function: Ternary[T, U, V, R]) -> UnpackTernary[T, U, V, R]:
     return unpack
 
 
-def unpack_quaternary(
-    function: Quaternary[T, U, V, W, R]
-) -> UnpackQuaternary[T, U, V, W, R]:
+def unpack_quaternary(function: Quaternary[T, U, V, W, R]) -> UnpackQuaternary[T, U, V, W, R]:
     def unpack(items: Tuple[T, U, V, W]) -> R:
         (t, u, v, w) = items
 
