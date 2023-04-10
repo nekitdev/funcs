@@ -9,7 +9,7 @@ P = ParamSpec("P")
 R = TypeVar("R")
 
 partial = standard_partial
-"""An alias of [`partial`][functools.partial] that implements partial application."""
+"""An alias of the standard `partial` type that implements partial application."""
 
 
 def apply(function: Callable[P, R], *args: P.args, **kwargs: P.kwargs) -> R:

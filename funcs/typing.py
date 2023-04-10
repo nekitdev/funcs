@@ -11,7 +11,9 @@ __all__ = (
     "ErrorType",
     "EmptyTuple",
     "DynamicTuple",
+    "AnyTuple",
     "DynamicCallable",
+    "AnyCallable",
     "Nullary",
     "Unary",
     "Binary",
@@ -55,8 +57,13 @@ R = TypeVar("R")
 P = ParamSpec("P")
 
 DynamicTuple = Tuple[T, ...]
+AnyTuple = DynamicTuple[Any]
 
 DynamicCallable = Callable[..., R]
+AnyCallable = DynamicCallable[Any]
+
+F = TypeVar("F", bound=AnyCallable)
+G = TypeVar("G", bound=AnyCallable)
 
 Nullary = Callable[[], R]
 Unary = Callable[[T], R]
@@ -65,6 +72,9 @@ Ternary = Callable[[T, U, V], R]
 Quaternary = Callable[[T, U, V, W], R]
 
 Predicate = Unary[T, bool]
+
+Decorator = Unary[F, G]
+DecoratorIdentity = Decorator[F, F]
 
 GenericPredicate = Callable[P, bool]
 

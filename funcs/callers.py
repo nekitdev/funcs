@@ -1,4 +1,4 @@
-from operator import methodcaller as method_caller
+from operator import methodcaller as standard_method_caller
 from typing import Any, TypeVar
 
 from typing_extensions import ParamSpec
@@ -6,6 +6,9 @@ from typing_extensions import ParamSpec
 from funcs.typing import DynamicCallable, Unary
 
 __all__ = ("caller", "method_caller")
+
+method_caller = standard_method_caller
+"""An alias of the standard `method_caller` type that implements method calling."""
 
 P = ParamSpec("P")
 
