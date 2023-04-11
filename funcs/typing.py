@@ -1,17 +1,23 @@
 from builtins import isinstance as is_instance
 from builtins import issubclass as is_subclass
-from typing import Any, Awaitable, Callable, Optional, Tuple, Type, TypeVar
+from types import TracebackType as Traceback
+from typing import Any, Awaitable, Callable, ContextManager, Optional, Tuple, Type, TypeVar
 
 from typing_extensions import ParamSpec, TypeAlias, TypeGuard
 
 __all__ = (
+    "Traceback",
     "AnyError",
     "AnyErrorType",
     "Error",
     "ErrorType",
+    "AnyContextManager",
+    "SimpleContextManager",
     "EmptyTuple",
     "DynamicTuple",
     "AnyTuple",
+    "AnyErrorTypes",
+    "ErrorTypes",
     "DynamicCallable",
     "AnyCallable",
     "Nullary",
@@ -45,6 +51,9 @@ AnyErrorType = Type[AnyError]
 Error: TypeAlias = Exception
 ErrorType = Type[Error]
 
+AnyContextManager = ContextManager[Any]
+SimpleContextManager = ContextManager[None]
+
 EmptyTuple = Tuple[()]
 
 T = TypeVar("T")
@@ -58,6 +67,9 @@ P = ParamSpec("P")
 
 DynamicTuple = Tuple[T, ...]
 AnyTuple = DynamicTuple[Any]
+
+AnyErrorTypes = DynamicTuple[AnyErrorType]
+ErrorTypes = DynamicTuple[ErrorType]
 
 DynamicCallable = Callable[..., R]
 AnyCallable = DynamicCallable[Any]
