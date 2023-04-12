@@ -44,7 +44,7 @@ Or by directly specifying it in the configuration like so:
 
 ```toml
 [tool.poetry.dependencies]
-funcs = "^0.2.0"
+funcs = "^0.2.1"
 ```
 
 Alternatively, you can add it directly from the source:
