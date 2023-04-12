@@ -53,18 +53,10 @@ class Reraise(SimpleContextManager, Generic[E]):
     def __enter__(self) -> None:
         pass
 
-    @overload
-    def __exit__(self, error_type: None, error: None, traceback: None) -> None:
-        ...
-
-    @overload
-    def __exit__(self, error_type: Type[F], error: F, traceback: Traceback) -> None:
-        ...
-
     def __exit__(
         self, error_type: Optional[Type[F]], error: Optional[F], traceback: Optional[Traceback]
     ) -> None:
-        if error_type is not None:
+        if error_type is not None and error is not None:
             if is_subclass(error_type, self.error_types):
                 raise self.error from error
 
@@ -83,14 +75,6 @@ class ReraiseWith(SimpleContextManager, Generic[E]):
 
     def __enter__(self) -> None:
         pass
-
-    @overload
-    def __exit__(self, error_type: None, error: None, traceback: None) -> None:
-        ...
-
-    @overload
-    def __exit__(self, error_type: Type[F], error: F, traceback: Traceback) -> None:
-        ...
 
     def __exit__(
         self, error_type: Optional[Type[F]], error: Optional[F], traceback: Optional[Traceback]
