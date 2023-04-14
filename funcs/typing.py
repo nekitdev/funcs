@@ -26,6 +26,7 @@ __all__ = (
     "Ternary",
     "Quaternary",
     "Predicate",
+    "Inspect",
     "GenericPredicate",
     "UnpackNullary",
     "UnpackUnary",
@@ -38,6 +39,7 @@ __all__ = (
     "AsyncTernary",
     "AsyncQuaternary",
     "AsyncPredicate",
+    "AsyncInspect",
     "AsyncGenericPredicate",
     "is_instance",
     "is_subclass",
@@ -84,6 +86,7 @@ Ternary = Callable[[T, U, V], R]
 Quaternary = Callable[[T, U, V, W], R]
 
 Predicate = Unary[T, bool]
+Inspect = Unary[T, None]
 
 Decorator = Unary[F, G]
 DecoratorIdentity = Decorator[F, F]
@@ -105,6 +108,7 @@ AsyncTernary = Ternary[T, U, V, Awaitable[R]]
 AsyncQuaternary = Quaternary[T, U, V, W, Awaitable[R]]
 
 AsyncPredicate = AsyncUnary[T, bool]
+AsyncInspect = AsyncUnary[T, None]
 
 AsyncGenericPredicate = AsyncCallable[P, bool]
 

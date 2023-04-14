@@ -1,6 +1,8 @@
 from typing import Optional, TypeVar
 
-__all__ = ("tap",)
+from funcs.typing import Inspect
+
+__all__ = ("tap", "inspect")
 
 T = TypeVar("T")
 
@@ -14,5 +16,11 @@ def tap(item: T, label: Optional[str] = None) -> T:
 
     else:
         print(label_string(label, item))
+
+    return item
+
+
+def inspect(function: Inspect[T], item: T) -> T:
+    function(item)
 
     return item
