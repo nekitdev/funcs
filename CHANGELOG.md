@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.2.2 (2023-04-17)
+
+## Features
+
+Added more types to `funcs.typing` module.
+
 ## 0.2.1 (2023-04-12)
 
 ## Features
