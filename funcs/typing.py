@@ -14,6 +14,14 @@ __all__ = (
     "AnyContextManager",
     "SimpleContextManager",
     "EmptyTuple",
+    "Tuple1",
+    "Tuple2",
+    "Tuple3",
+    "Tuple4",
+    "Tuple5",
+    "Tuple6",
+    "Tuple7",
+    "Tuple8",
     "DynamicTuple",
     "AnyTuple",
     "AnyErrorTypes",
@@ -31,6 +39,7 @@ __all__ = (
     "Decorator",
     "DecoratorIdentity",
     "GenericPredicate",
+    "Compare",
     "UnpackNullary",
     "UnpackUnary",
     "UnpackBinary",
@@ -46,6 +55,7 @@ __all__ = (
     "AsyncInspect",
     "AsyncPredicate",
     "AsyncGenericPredicate",
+    "AsyncCompare",
     "is_instance",
     "is_subclass",
     "is_none",
@@ -71,6 +81,15 @@ W = TypeVar("W")
 R = TypeVar("R")
 
 P = ParamSpec("P")
+
+Tuple1 = Tuple[T]
+Tuple2 = Tuple[T, T]
+Tuple3 = Tuple[T, T, T]
+Tuple4 = Tuple[T, T, T, T]
+Tuple5 = Tuple[T, T, T, T, T]
+Tuple6 = Tuple[T, T, T, T, T, T]
+Tuple7 = Tuple[T, T, T, T, T, T, T]
+Tuple8 = Tuple[T, T, T, T, T, T, T, T]
 
 DynamicTuple = Tuple[T, ...]
 AnyTuple = DynamicTuple[Any]
@@ -101,6 +120,8 @@ DecoratorIdentity = Identity[F]
 
 GenericPredicate = Callable[P, bool]
 
+Compare = Binary[T, U, bool]
+
 UnpackNullary = Unary[EmptyTuple, R]
 UnpackUnary = Unary[Tuple[T], R]
 UnpackBinary = Unary[Tuple[T, U], R]
@@ -122,6 +143,8 @@ AsyncInspect = AsyncUnary[T, None]
 AsyncPredicate = AsyncUnary[T, bool]
 
 AsyncGenericPredicate = AsyncCallable[P, bool]
+
+AsyncCompare = AsyncBinary[T, U, bool]
 
 
 def is_none(item: Optional[Any]) -> TypeGuard[None]:
