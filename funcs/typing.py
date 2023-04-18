@@ -46,6 +46,8 @@ __all__ = (
     "UnpackTernary",
     "UnpackQuaternary",
     "AsyncCallable",
+    "DynamicAsyncCallable",
+    "AnyAsyncCallable",
     "AsyncNullary",
     "AsyncUnary",
     "AsyncBinary",
@@ -129,6 +131,8 @@ UnpackTernary = Unary[Tuple[T, U, V], R]
 UnpackQuaternary = Unary[Tuple[T, U, V, W], R]
 
 AsyncCallable = Callable[P, Awaitable[R]]
+DynamicAsyncCallable = AsyncCallable[..., R]  # type: ignore
+AnyAsyncCallable = DynamicAsyncCallable[Any]
 
 AsyncNullary = Nullary[Awaitable[R]]
 AsyncUnary = Unary[T, Awaitable[R]]
