@@ -1,10 +1,10 @@
-from typing import TypeVar
+from typing import Callable, TypeVar
 
 from typing_extensions import Never, ParamSpec
 
-from funcs.typing import AnyError, Binary, GenericPredicate, Nullary
+from funcs.typing import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary
 
-__all__ = ("identity", "always", "raises", "flip", "complement")
+__all__ = ("asyncify", "identity", "always", "raises", "flip", "complement")
 
 T = TypeVar("T")
 U = TypeVar("U")
@@ -12,6 +12,13 @@ U = TypeVar("U")
 R = TypeVar("R")
 
 P = ParamSpec("P")
+
+
+def asyncify(function: Callable[P, R]) -> AsyncCallable[P, R]:
+    async def async_function(*args: P.args, **kwargs: P.kwargs) -> R:
+        return function(*args, **kwargs)
+
+    return async_function
 
 
 def identity(item: T) -> T:

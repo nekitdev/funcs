@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.3.0 (2023-04-20)
+
+### Features
+
+- Added `asyncify` function.
+
 ## 0.2.4 (2023-04-18)
 
 ### Features
