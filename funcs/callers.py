@@ -16,6 +16,16 @@ R = TypeVar("R")
 
 
 def caller(*args: Any, **kwargs: Any) -> Unary[DynamicCallable[R], R]:
+    """Creates a function that calls the given `function` with `*args` and `**kwargs`.
+
+    Arguments:
+        *args: The arguments to use.
+        **kwargs: The keyword arguments to use.
+
+    Returns:
+        The function that calls the given `function` with `*args` and `**kwargs`.
+    """
+
     def call(function: DynamicCallable[R]) -> R:
         return function(*args, **kwargs)
 

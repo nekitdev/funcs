@@ -1,4 +1,4 @@
-from typing import Callable, Generic, Optional, Type, TypeVar, overload
+from typing import Callable, Generic, Optional, Type, TypeVar, final, overload
 
 from attrs import frozen
 from typing_extensions import Literal, ParamSpec
@@ -25,6 +25,15 @@ S = TypeVar("S")
 
 
 def once(function: Callable[P, R]) -> Callable[P, R]:
+    """Wraps the function to be called once, and then the
+    computed result is returned on subsequent calls.
+
+    Arguments:
+        function: The function to wrap.
+
+    Returns:
+        The wrapped function.
+    """
     result: MarkerOr[R] = marker
 
     @wraps(function)
@@ -45,10 +54,15 @@ E = TypeVar("E", bound=AnyError)
 F = TypeVar("F", bound=AnyError)
 
 
+@final
 @frozen()
 class Reraise(SimpleContextManager, Generic[E]):
+    """Represents context managers that reraise errors of given `error_types` as `error`."""
+
     error: E
+    """The error to raise."""
     error_types: AnyErrorTypes
+    """The error types to reraise."""
 
     def __enter__(self) -> None:
         pass
@@ -62,16 +76,33 @@ class Reraise(SimpleContextManager, Generic[E]):
 
 
 def reraise(error: E, *error_types: AnyErrorType) -> Reraise[E]:
+    """Constructs the [`Reraise[E]`][funcs.flow.Reraise] context manager
+    that reraises errors of given `error_types` as `error`.
+
+    Arguments:
+        error: The error to raise.
+        *error_types: The error types to reraise.
+
+    Returns:
+        The constructed [`Reraise[E]`][funcs.flow.Reraise] context manager.
+    """
     return Reraise(error, error_types)
 
 
 Into = Unary[AnyError, E]
 
 
+@final
 @frozen()
 class ReraiseWith(SimpleContextManager, Generic[E]):
+    """Represents context managers that reraise errors of given `error_types` as `error`,
+    which is computed dynamically from the original error.
+    """
+
     into: Into[E]
+    """The function that computes the error to raise from the original error."""
     error_types: AnyErrorTypes
+    """The error types to reraise."""
 
     def __enter__(self) -> None:
         pass
@@ -85,12 +116,27 @@ class ReraiseWith(SimpleContextManager, Generic[E]):
 
 
 def reraise_with(into: Into[E], *error_types: AnyErrorType) -> ReraiseWith[E]:
+    """Constructs the [`ReraiseWith[E]`][funcs.flow.ReraiseWith] context manager
+    that reraises errors of given `error_types` as `error`, which is computed dynamically
+    from the original error.
+
+    Arguments:
+        into: The function that computes the error to raise from the original error.
+        *error_types: The error types to reraise.
+
+    Returns:
+        The constructed [`ReraiseWith[E]`][funcs.flow.ReraiseWith] context manager.
+    """
     return ReraiseWith(into, error_types)
 
 
+@final
 @frozen()
 class Suppress:
+    """Represents context managers that suppress errors of given `error_types`."""
+
     error_types: AnyErrorTypes
+    """The error types to suppress."""
 
     def __enter__(self) -> None:
         pass
@@ -110,11 +156,23 @@ class Suppress:
 
 
 def suppress(*error_types: AnyErrorType) -> Suppress:
+    """Constructs the [`Suppress`][funcs.flow.Suppress] context manager used to suppress
+    errors of given `error_types`.
+
+    Arguments:
+        *error_types: The error types to suppress.
+
+    Returns:
+        The constructed [`Suppress`][funcs.flow.Suppress] context manager.
+    """
     return Suppress(error_types)
 
 
+@final
 @frozen()
 class PostProcessing(Generic[R, S]):
+    """Represents decorators that post-process results of function calls."""
+
     function: Unary[R, S]
 
     def __call__(self, function: Callable[P, R]) -> Callable[P, S]:
@@ -126,12 +184,24 @@ class PostProcessing(Generic[R, S]):
 
 
 def post_processing(function: Unary[R, S]) -> PostProcessing[R, S]:
+    """Constructs the [`PostProcessing[R, S]`][funcs.flow.PostProcessing] decorator
+    which post-processes results of function calls.
+
+    Arguments:
+        function: The post-processing function.
+
+    Returns:
+        The constructed [`PostProcessing[R, S]`][funcs.flow.PostProcessing] decorator.
+    """
     return PostProcessing(function)
 
 
 @frozen()
 class WrapWith:
+    """Represents decorators that wrap function calls with the given `context_manager`."""
+
     context_manager: AnyContextManager
+    """The context manager to wrap function calls with."""
 
     def __call__(self, function: Callable[P, R]) -> Callable[P, R]:
         @wraps(function)
@@ -143,4 +213,13 @@ class WrapWith:
 
 
 def wrap_with(context_manager: AnyContextManager) -> WrapWith:
+    """Constructs the [`WrapWith`][funcs.flow.WrapWith] decorator that wraps function calls
+    with the given `context_manager`.
+
+    Arguments:
+        context_manager: The context manager to wrap function calls with.
+
+    Returns:
+        The constructed [`WrapWith`][funcs.flow.WrapWith] decorator.
+    """
     return WrapWith(context_manager)

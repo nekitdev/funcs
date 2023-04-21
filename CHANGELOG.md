@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.4.0 (2023-04-21)
+
+### Features
+
+- Documented the entire library.
+
 ## 0.3.0 (2023-04-20)
 
 ### Features

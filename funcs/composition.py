@@ -21,6 +21,18 @@ H = TypeVar("H")
 
 
 def pipe_once(inner: Unary[T, U], outer: Unary[U, R]) -> Unary[T, R]:
+    """Composes two functions from left to right into one function.
+
+    For instance, `pipe_once(f, g)(x)` is equivalent to `g(f(x))`.
+
+    Arguments:
+        inner: The inner function.
+        outer: The outer function.
+
+    Returns:
+        The composed function.
+    """
+
     def piped(item: T) -> R:
         return outer(inner(item))
 
@@ -110,10 +122,39 @@ def pipe(innermost: Unary[T, Any], *functions: Unary[Any, Any]) -> Unary[T, Any]
 
 
 def pipe(innermost: Unary[T, Any], *functions: Unary[Any, Any]) -> Unary[T, Any]:
+    """Composes multiple functions from left to right into one function.
+
+    For instance, `pipe(f, g)(x)` is equivalent to `g(f(x))`.
+
+    This function is equivalent to:
+
+    ```python
+    fold(innermost, pipe_once, functions)
+    ```
+
+    Arguments:
+        innermost: The innermost function.
+        *functions: The rest of the functions.
+
+    Returns:
+        The composed function.
+    """
     return fold(innermost, pipe_once, functions)
 
 
 def compose_once(outer: Unary[U, R], inner: Unary[T, U]) -> Unary[T, R]:
+    """Composes two functions from right to left into one function.
+
+    For instance, `compose_once(f, g)(x)` is equivalent to `f(g(x))`.
+
+    Arguments:
+        outer: The outer function.
+        inner: The inner function.
+
+    Returns:
+        The composed function.
+    """
+
     def composed(item: T) -> R:
         return outer(inner(item))
 
@@ -203,4 +244,21 @@ def compose(outermost: Unary[Any, T], *functions: Unary[Any, Any]) -> Unary[Any,
 
 
 def compose(outermost: Unary[Any, T], *functions: Unary[Any, Any]) -> Unary[Any, T]:
+    """Composes multiple functions from right to left into one.
+
+    For instance, `compose(f, g)(x)` is equivalent to `f(g(x))`.
+
+    This function is equivalent to:
+
+    ```python
+    fold(outermost, compose_once, functions)
+    ```
+
+    Arguments:
+        outermost: The outermost function.
+        *functions: The rest of the functions.
+
+    Returns:
+        The composed function.
+    """
     return fold(outermost, compose_once, functions)
