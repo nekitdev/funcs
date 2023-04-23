@@ -9,8 +9,8 @@ __all__ = (
     "Traceback",
     "AnyError",
     "AnyErrorType",
-    "Error",
-    "ErrorType",
+    "NormalError",
+    "NormalErrorType",
     "AnyContextManager",
     "SimpleContextManager",
     "EmptyTuple",
@@ -25,7 +25,7 @@ __all__ = (
     "DynamicTuple",
     "AnyTuple",
     "AnyErrorTypes",
-    "ErrorTypes",
+    "NormalErrorTypes",
     "DynamicCallable",
     "AnyCallable",
     "Nullary",
@@ -69,9 +69,9 @@ AnyError: TypeAlias = BaseException
 AnyErrorType = Type[AnyError]
 """Represents any error types."""
 
-Error: TypeAlias = Exception
+NormalError: TypeAlias = Exception
 """Represents normal errors."""
-ErrorType = Type[Error]
+NormalErrorType = Type[NormalError]
 """Represents normal error types."""
 
 AnyContextManager = ContextManager[Any]
@@ -115,8 +115,8 @@ AnyTuple = DynamicTuple[Any]
 
 AnyErrorTypes = DynamicTuple[AnyErrorType]
 """Represents tuples of any error types `(AnyErrorType, ...)`."""
-ErrorTypes = DynamicTuple[ErrorType]
-"""Represents tuples of normal error types `(ErrorType, ...)`."""
+NormalErrorTypes = DynamicTuple[NormalErrorType]
+"""Represents tuples of normal error types `(NormalErrorType, ...)`."""
 
 DynamicCallable = Callable[..., R]
 """Represents dynamic callables `(...) -> R`."""

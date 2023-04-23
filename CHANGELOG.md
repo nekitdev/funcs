@@ -2,6 +2,13 @@
 
 <!-- changelogging: start -->
 
+## 0.5.0 (2023-04-23)
+
+### Changes
+
+- `Error`, `ErrorType` and `ErrorTypes` have been renamed to `NormalError`, `NormalErrorType`
+  and `NormalErrorTypes` respectively.
+
 ## 0.4.0 (2023-04-21)
 
 ### Features
