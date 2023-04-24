@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.5.1 (2023-04-24)
+
+### Features
+
+- Exported the `inspect` function (from `funcs.debug`).
+
 ## 0.5.0 (2023-04-23)
 
 ### Changes

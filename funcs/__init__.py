@@ -6,12 +6,12 @@ __url__ = "https://github.com/nekitdev/funcs"
 __title__ = "funcs"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "0.5.0"
+__version__ = "0.5.1"
 
 from funcs.application import apply, partial
 from funcs.callers import caller, method_caller
 from funcs.composition import compose, compose_once, pipe, pipe_once
-from funcs.debug import tap
+from funcs.debug import inspect, tap
 from funcs.decorators import wraps
 from funcs.flow import once, post_processing, reraise, reraise_with, suppress, wrap_with
 from funcs.functions import always, asyncify, complement, flip, identity, raises
@@ -39,6 +39,7 @@ __all__ = (
     "pipe",
     "pipe_once",
     # debug
+    "inspect",
     "tap",
     # decorators
     "wraps",
