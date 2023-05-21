@@ -1,9 +1,8 @@
 from operator import methodcaller as standard_method_caller
 from typing import Any, TypeVar
 
+from typing_aliases import DynamicCallable, Unary
 from typing_extensions import ParamSpec
-
-from funcs.typing import DynamicCallable, Unary
 
 __all__ = ("caller", "method_caller")
 

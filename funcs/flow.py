@@ -1,20 +1,20 @@
+from types import TracebackType as Traceback
 from typing import Callable, Generic, Optional, Type, TypeVar, final, overload
 
 from attrs import frozen
-from typing_extensions import Literal, ParamSpec
-
-from funcs.decorators import wraps
-from funcs.types import MarkerOr, is_not_marker, marker
-from funcs.typing import (
+from typing_aliases import (
     AnyContextManager,
     AnyError,
     AnyErrorType,
     AnyErrorTypes,
     SimpleContextManager,
-    Traceback,
     Unary,
     is_subclass,
 )
+from typing_extensions import Literal, ParamSpec
+
+from funcs.decorators import wraps
+from funcs.types import MarkerOr, is_not_marker, marker
 
 __all__ = ("once", "reraise", "reraise_with", "suppress", "post_processing", "wrap_with")
 

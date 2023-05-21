@@ -1,6 +1,6 @@
 from typing import Optional, TypeVar
 
-from funcs.typing import Inspect
+from typing_aliases import Inspect
 
 __all__ = ("tap", "inspect")
 

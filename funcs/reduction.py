@@ -1,7 +1,7 @@
 from functools import reduce as standard_reduce
 from typing import Iterable, TypeVar
 
-from funcs.typing import Binary
+from typing_aliases import Binary
 
 __all__ = ("reduce", "fold")
 

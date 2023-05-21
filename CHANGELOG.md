@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.6.0 (2023-05-21)
+
+### Removals
+
+- Removed `funcs.typing` module. Consider using `typing-aliases` library instead.
+
 ## 0.5.1 (2023-04-24)
 
 ### Features

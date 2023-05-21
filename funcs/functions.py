@@ -1,8 +1,7 @@
 from typing import Callable, TypeVar
 
+from typing_aliases import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary
 from typing_extensions import Never, ParamSpec
-
-from funcs.typing import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary
 
 __all__ = ("asyncify", "identity", "always", "raises", "flip", "complement")
 

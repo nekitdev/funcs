@@ -36,10 +36,6 @@
 
 ::: funcs.reduction
 
-## Typing
-
-::: funcs.typing
-
 ## Unpacking
 
 ::: funcs.unpacking

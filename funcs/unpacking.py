@@ -1,6 +1,6 @@
 from typing import Tuple, TypeVar
 
-from funcs.typing import (
+from typing_aliases import (
     Binary,
     EmptyTuple,
     Nullary,

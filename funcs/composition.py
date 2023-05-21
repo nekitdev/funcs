@@ -1,7 +1,8 @@
 from typing import Any, TypeVar, overload
 
+from typing_aliases import Unary
+
 from funcs.reduction import fold
-from funcs.typing import Unary
 
 __all__ = ("compose", "compose_once", "pipe", "pipe_once")
 
