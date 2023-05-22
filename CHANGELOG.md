@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.7.0 (2023-05-22)
+
+### Features
+
+- Added `@cache` and `@cache_typed` decorators.
+
 ## 0.6.0 (2023-05-21)
 
 ### Removals

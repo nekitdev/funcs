@@ -6,7 +6,7 @@ __url__ = "https://github.com/nekitdev/funcs"
 __title__ = "funcs"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "0.6.0"
+__version__ = "0.7.0"
 
 from funcs.application import apply, partial
 from funcs.callers import caller, method_caller

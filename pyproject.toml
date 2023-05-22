@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "funcs"
-version = "0.6.0"
+version = "0.7.0"
 description = "Functional programming in Python."
 authors = ["nekitdev"]
 license = "MIT"
@@ -83,6 +83,9 @@ changelogging = "1.3.0"
 [tool.black]
 line_length = 100
 
+[tool.flake8]
+max_line_length = 100
+
 [tool.isort]
 line_length = 100
 profile = "black"
@@ -137,7 +140,7 @@ warn_unused_ignores = false  # compatibility
 
 [tool.changelogging]
 name = "funcs"
-version = "0.6.0"
+version = "0.7.0"
 url = "https://github.com/nekitdev/funcs"
 directory = "changes"
 output = "CHANGELOG.md"
