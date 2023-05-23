@@ -6,7 +6,7 @@
 
 ### Fixes
 
-- Fixed final import to be compatible with Python 3.7.
+- Fixed `final` import to be compatible with Python 3.7.
 
 ## 0.7.0 (2023-05-22)
 
