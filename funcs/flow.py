@@ -1,5 +1,5 @@
 from types import TracebackType as Traceback
-from typing import Callable, Generic, Optional, Type, TypeVar, final, overload
+from typing import Callable, Generic, Optional, Type, TypeVar, overload
 
 from attrs import frozen
 from typing_aliases import (
@@ -11,7 +11,7 @@ from typing_aliases import (
     Unary,
     is_subclass,
 )
-from typing_extensions import Literal, ParamSpec
+from typing_extensions import Literal, ParamSpec, final
 
 from funcs.decorators import wraps
 from funcs.types import MarkerOr, is_not_marker, marker
