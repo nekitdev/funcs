@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## 0.8.0 (2023-05-31)
+
+### Features
+
+- Added `awaiting` function.
+
 ## 0.7.1 (2023-05-24)
 
 ### Fixes

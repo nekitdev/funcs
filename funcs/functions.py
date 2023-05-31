@@ -1,9 +1,9 @@
-from typing import Callable, TypeVar
+from typing import Awaitable, Callable, TypeVar
 
 from typing_aliases import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary
 from typing_extensions import Never, ParamSpec
 
-__all__ = ("asyncify", "identity", "always", "raises", "flip", "complement")
+__all__ = ("awaiting", "asyncify", "identity", "always", "raises", "flip", "complement")
 
 T = TypeVar("T")
 U = TypeVar("U")
@@ -11,6 +11,21 @@ U = TypeVar("U")
 R = TypeVar("R")
 
 P = ParamSpec("P")
+
+
+async def awaiting(awaitable: Awaitable[T]) -> T:
+    """Wraps an awaitable into a coroutine.
+
+    This function is useful in, for example, [`asyncio`][asyncio],
+    where some functions expect coroutines only.
+
+    Arguments:
+        awaitable: The awaitable to wrap.
+
+    Returns:
+        The result of `await awaitable`.
+    """
+    return await awaitable
 
 
 def asyncify(function: Callable[P, R]) -> AsyncCallable[P, R]:

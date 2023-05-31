@@ -6,7 +6,7 @@ __url__ = "https://github.com/nekitdev/funcs"
 __title__ = "funcs"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "0.7.1"
+__version__ = "0.8.0"
 
 from funcs.application import apply, partial
 from funcs.callers import caller, method_caller
@@ -14,7 +14,7 @@ from funcs.composition import compose, compose_once, pipe, pipe_once
 from funcs.debug import inspect, tap
 from funcs.decorators import wraps
 from funcs.flow import once, post_processing, reraise, reraise_with, suppress, wrap_with
-from funcs.functions import always, asyncify, complement, flip, identity, raises
+from funcs.functions import always, asyncify, awaiting, complement, flip, identity, raises
 from funcs.getters import attribute_getter, item_getter
 from funcs.primitives import decrement, increment, is_even, is_odd
 from funcs.reduction import fold, reduce
