@@ -346,6 +346,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#funcs.callers.Caller" class="md-nav__link">
+    Caller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#funcs.callers.caller" class="md-nav__link">
     caller()
   </a>
@@ -589,6 +596,13 @@
         <li class="md-nav__item">
   <a href="#funcs.functions" class="md-nav__link">
     funcs.functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcs.functions.awaiting" class="md-nav__link">
+    awaiting()
   </a>
   
 </li>
@@ -926,6 +940,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#funcs.callers.Caller" class="md-nav__link">
+    Caller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#funcs.callers.caller" class="md-nav__link">
     caller()
   </a>
@@ -1169,6 +1190,13 @@
         <li class="md-nav__item">
   <a href="#funcs.functions" class="md-nav__link">
     funcs.functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcs.functions.awaiting" class="md-nav__link">
+    awaiting()
   </a>
   
 </li>
@@ -1466,7 +1494,7 @@
         <tr>
           <td><code>*args</code></td>
           <td>
-                <code><span title="funcs.application.P">P</span>.<span title="P.args">args</span></code>
+                <code><span title="funcs.application.P">P</span>.<span title="funcs.application.P.args">args</span></code>
           </td>
           <td><p>Positional arguments to apply.</p></td>
           <td>
@@ -1476,7 +1504,7 @@
         <tr>
           <td><code>**kwargs</code></td>
           <td>
-                <code><span title="funcs.application.P">P</span>.<span title="P.kwargs">kwargs</span></code>
+                <code><span title="funcs.application.P">P</span>.<span title="funcs.application.P.kwargs">kwargs</span></code>
           </td>
           <td><p>Keyword arguments to apply.</p></td>
           <td>
@@ -1602,6 +1630,67 @@
 </div>
 
 
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="funcs.callers.Caller" class="doc doc-heading">
+        <code>Caller</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Represents function callers.</p>
+
+
+        <details class="quote">
+          <summary>Source code in <code>funcs/callers.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@final</span>
+<span class="nd">@frozen</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">Caller</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents function callers.&quot;&quot;&quot;</span>
+
+    <span class="n">args</span><span class="p">:</span> <span class="n">DynamicTuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
+    <span class="n">kwargs</span><span class="p">:</span> <span class="n">StringDict</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">:</span> <span class="n">DynamicCallable</span><span class="p">[</span><span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -1615,7 +1704,8 @@
 
   <div class="doc doc-contents ">
   
-      <p>Creates a function that calls the given <code>function</code> with <code>*args</code> and <code>**kwargs</code>.</p>
+      <p>Creates a <a class="autorefs autorefs-internal" href="#funcs.callers.Caller"><code>Caller</code></a> that calls the given
+<code>function</code> with <code>*args</code> and <code>**kwargs</code>.</p>
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1664,42 +1754,36 @@
           <td>
                 <code><span title="typing_aliases.Unary">Unary</span>[<span title="typing_aliases.DynamicCallable">DynamicCallable</span>[<span title="funcs.callers.R">R</span>], <span title="funcs.callers.R">R</span>]</code>
           </td>
-          <td><p>The function that calls the given <code>function</code> with <code>*args</code> and <code>**kwargs</code>.</p></td>
+          <td><p>The <a class="autorefs autorefs-internal" href="#funcs.callers.Caller"><code>Caller</code></a> created.</p></td>
         </tr>
     </tbody>
   </table>
 
       <details class="quote">
         <summary>Source code in <code>funcs/callers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">caller</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Unary</span><span class="p">[</span><span class="n">DynamicCallable</span><span class="p">[</span><span class="n">R</span><span class="p">],</span> <span class="n">R</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a function that calls the given `function` with `*args` and `**kwargs`.</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">caller</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Unary</span><span class="p">[</span><span class="n">DynamicCallable</span><span class="p">[</span><span class="n">R</span><span class="p">],</span> <span class="n">R</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a [`Caller`][funcs.callers.Caller] that calls the given</span>
+<span class="sd">    `function` with `*args` and `**kwargs`.</span>
 
 <span class="sd">    Arguments:</span>
 <span class="sd">        *args: The arguments to use.</span>
 <span class="sd">        **kwargs: The keyword arguments to use.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        The function that calls the given `function` with `*args` and `**kwargs`.</span>
+<span class="sd">        The [`Caller`][funcs.callers.Caller] created.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">DynamicCallable</span><span class="p">[</span><span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">R</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">call</span>
+    <span class="k">return</span> <span class="n">Caller</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
       </details>
   </div>
@@ -3557,6 +3641,101 @@ with the given <code>context_manager</code>.</p>
 
 
 
+<h2 id="funcs.functions.awaiting" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">awaiting</span><span class="p">(</span><span class="n">awaitable</span><span class="p">:</span> <span class="n">Awaitable</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Wraps an awaitable into a coroutine.</p>
+<p>This function is useful in, for example, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/asyncio.html#module-asyncio"><code>asyncio</code></a>,
+where some functions expect coroutines only.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>awaitable</code></td>
+          <td>
+                <code><a class="autorefs autorefs-external" title="typing.Awaitable" href="https://docs.python.org/3/library/typing.html#typing.Awaitable">Awaitable</a>[<span title="funcs.functions.T">T</span>]</code>
+          </td>
+          <td><p>The awaitable to wrap.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="funcs.functions.T">T</span></code>
+          </td>
+          <td><p>The result of <code>await awaitable</code>.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+      <details class="quote">
+        <summary>Source code in <code>funcs/functions.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">awaiting</span><span class="p">(</span><span class="n">awaitable</span><span class="p">:</span> <span class="n">Awaitable</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps an awaitable into a coroutine.</span>
+
+<span class="sd">    This function is useful in, for example, [`asyncio`][asyncio],</span>
+<span class="sd">    where some functions expect coroutines only.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        awaitable: The awaitable to wrap.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The result of `await awaitable`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="k">await</span> <span class="n">awaitable</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
 <h2 id="funcs.functions.asyncify" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">asyncify</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">AsyncCallable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]</span></code>
 
@@ -3611,20 +3790,20 @@ with the given <code>context_manager</code>.</p>
 
       <details class="quote">
         <summary>Source code in <code>funcs/functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">asyncify</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">AsyncCallable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">asyncify</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">AsyncCallable</span><span class="p">[</span><span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps the synchronous function to be called asynchronously.</span>
 
 <span class="sd">    Arguments:</span>
@@ -3702,16 +3881,16 @@ with the given <code>context_manager</code>.</p>
 
       <details class="quote">
         <summary>Source code in <code>funcs/functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the given `item`.</span>
 
 <span class="sd">    Arguments:</span>
@@ -3785,20 +3964,20 @@ with the given <code>context_manager</code>.</p>
 
       <details class="quote">
         <summary>Source code in <code>funcs/functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">always</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Nullary</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">always</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Nullary</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a function that always returns the given `item` when called.</span>
 
 <span class="sd">    Arguments:</span>
@@ -3876,20 +4055,20 @@ with the given <code>context_manager</code>.</p>
 
       <details class="quote">
         <summary>Source code in <code>funcs/functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">raises</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="n">AnyError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Nullary</span><span class="p">[</span><span class="n">Never</span><span class="p">]:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">raises</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="n">AnyError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Nullary</span><span class="p">[</span><span class="n">Never</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a function that always raises the given `error` when called.</span>
 
 <span class="sd">    Arguments:</span>
@@ -3967,20 +4146,20 @@ with the given <code>context_manager</code>.</p>
 
       <details class="quote">
         <summary>Source code in <code>funcs/functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
-<span class="normal">80</span>
-<span class="normal">81</span>
-<span class="normal">82</span>
-<span class="normal">83</span>
-<span class="normal">84</span>
-<span class="normal">85</span>
-<span class="normal">86</span>
-<span class="normal">87</span>
-<span class="normal">88</span>
-<span class="normal">89</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">binary</span><span class="p">:</span> <span class="n">Binary</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Binary</span><span class="p">[</span><span class="n">U</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">flip</span><span class="p">(</span><span class="n">binary</span><span class="p">:</span> <span class="n">Binary</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">R</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Binary</span><span class="p">[</span><span class="n">U</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">R</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a function that flips arguments of the given `binary` function.</span>
 
 <span class="sd">    Arguments:</span>
@@ -4058,20 +4237,20 @@ with the given <code>context_manager</code>.</p>
 
       <details class="quote">
         <summary>Source code in <code>funcs/functions.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">complement</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span> <span class="n">GenericPredicate</span><span class="p">[</span><span class="n">P</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">GenericPredicate</span><span class="p">[</span><span class="n">P</span><span class="p">]:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">complement</span><span class="p">(</span><span class="n">predicate</span><span class="p">:</span> <span class="n">GenericPredicate</span><span class="p">[</span><span class="n">P</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">GenericPredicate</span><span class="p">[</span><span class="n">P</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Wraps the given `predicate` to return the negated result.</span>
 
 <span class="sd">    Arguments:</span>
