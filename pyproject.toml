@@ -64,7 +64,7 @@ optional = true
 [tool.poetry.group.test.dependencies]
 pytest = "7.3.1"
 pytest-cov = "4.0.0"
-hypothesis = "6.75.3"
+hypothesis = "6.79.4"
 
 [tool.poetry.group.docs]
 optional = true
