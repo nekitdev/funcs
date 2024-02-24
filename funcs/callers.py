@@ -1,9 +1,9 @@
 from operator import methodcaller as standard_method_caller
-from typing import Any, TypeVar
+from typing import Any, TypeVar, final
 
 from attrs import frozen
 from typing_aliases import DynamicCallable, DynamicTuple, StringDict, Unary
-from typing_extensions import ParamSpec, final
+from typing_extensions import ParamSpec
 
 __all__ = ("caller", "method_caller")
 

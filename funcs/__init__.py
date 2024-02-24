@@ -6,7 +6,7 @@ __url__ = "https://github.com/nekitdev/funcs"
 __title__ = "funcs"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "0.8.0"
+__version__ = "0.9.0"
 
 from funcs.application import apply, partial
 from funcs.callers import caller, method_caller
@@ -51,6 +51,7 @@ __all__ = (
     "post_processing",
     "wrap_with",
     # functions
+    "awaiting",
     "asyncify",
     "identity",
     "always",

@@ -6,5 +6,5 @@ from funcs.functions import identity
 
 
 @given(strategies.from_type(type))
-def test_identity(item: Any) -> None:  # type: ignore
+def test_identity(item: Any) -> None:
     assert identity(item) is item
