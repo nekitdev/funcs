@@ -2,6 +2,10 @@
 
 <!-- changelogging: start -->
 
+## 0.9.1 (2024-02-26)
+
+No significant changes.
+
 ## 0.9.0 (2024-02-24)
 
 ### Internal
