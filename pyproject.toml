@@ -38,7 +38,7 @@ typing-extensions = ">= 4.10.0"
 solus = ">= 1.2.2"
 
 [tool.poetry.group.format.dependencies]
-ruff = "0.2.2"
+ruff = "0.3.0"
 
 [tool.poetry.group.check.dependencies]
 mypy = "1.8.0"
