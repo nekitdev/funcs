@@ -14,7 +14,7 @@ from typing_aliases import (
 from typing_extensions import ParamSpec
 
 from funcs.decorators import wraps
-from funcs.types import MarkerOr, is_not_marker, marker
+from funcs.types import MarkerOr, is_marker, marker
 
 __all__ = ("once", "reraise", "reraise_with", "suppress", "post_processing", "wrap_with")
 
@@ -40,7 +40,7 @@ def once(function: Callable[P, R]) -> Callable[P, R]:
     def wrap(*args: P.args, **kwargs: P.kwargs) -> R:
         nonlocal result
 
-        if is_not_marker(result):
+        if not is_marker(result):
             return result
 
         result = function(*args, **kwargs)

@@ -1,9 +1,9 @@
-from typing import Any, TypeVar, Union
+from typing import TypeVar, Union
 
 from solus import Singleton
-from typing_extensions import TypeGuard
+from typing_extensions import TypeIs
 
-__all__ = ("Marker", "MarkerOr", "marker", "is_marker", "is_not_marker")
+__all__ = ("Marker", "MarkerOr", "marker", "is_marker")
 
 T = TypeVar("T")
 
@@ -19,7 +19,7 @@ MarkerOr = Union[Marker, T]
 """The union of [`Marker`][funcs.types.Marker] and `T`."""
 
 
-def is_marker(item: Any) -> TypeGuard[Marker]:
+def is_marker(item: MarkerOr[T]) -> TypeIs[Marker]:
     """Checks if the given `item` is [`marker`][funcs.types.marker].
 
     Arguments:
@@ -29,15 +29,3 @@ def is_marker(item: Any) -> TypeGuard[Marker]:
         Whether the given `item` is [`marker`][funcs.types.marker].
     """
     return item is marker
-
-
-def is_not_marker(item: MarkerOr[T]) -> TypeGuard[T]:
-    """Checks if the given `item` is *not* [`marker`][funcs.types.marker].
-
-    Arguments:
-        item: The item to check.
-
-    Returns:
-        Whether the given `item` is *not* [`marker`][funcs.types.marker].
-    """
-    return item is not marker
