@@ -32,13 +32,13 @@ include = "funcs"
 [tool.poetry.dependencies]
 python = ">= 3.8"
 
-typing-aliases = ">= 1.7.1"
+typing-aliases = ">= 1.8.0"
 typing-extensions = ">= 4.10.0"
 
 solus = ">= 1.2.2"
 
 [tool.poetry.group.format.dependencies]
-ruff = "0.3.2"
+ruff = "0.3.3"
 
 [tool.poetry.group.check.dependencies]
 mypy = "1.9.0"
@@ -68,7 +68,7 @@ extras = ["python"]
 optional = true
 
 [tool.poetry.group.release.dependencies]
-changelogging = "1.4.1"
+changelogging = "1.4.2"
 
 [tool.ruff]
 line-length = 100
