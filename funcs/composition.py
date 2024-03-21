@@ -41,20 +41,17 @@ def pipe_once(inner: Unary[T, U], outer: Unary[U, R]) -> Unary[T, R]:
 
 
 @overload
-def pipe(__function_a: Unary[A, R]) -> Unary[A, R]:
-    ...
+def pipe(__function_a: Unary[A, R]) -> Unary[A, R]: ...
 
 
 @overload
-def pipe(__function_a: Unary[A, B], __function_b: Unary[B, R]) -> Unary[A, R]:
-    ...
+def pipe(__function_a: Unary[A, B], __function_b: Unary[B, R]) -> Unary[A, R]: ...
 
 
 @overload
 def pipe(
     __function_a: Unary[A, B], __function_b: Unary[B, C], __function_c: Unary[C, R]
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -63,8 +60,7 @@ def pipe(
     __function_b: Unary[B, C],
     __function_c: Unary[C, D],
     __function_d: Unary[D, R],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -74,8 +70,7 @@ def pipe(
     __function_c: Unary[C, D],
     __function_d: Unary[D, E],
     __function_e: Unary[E, R],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -86,8 +81,7 @@ def pipe(
     __function_d: Unary[D, E],
     __function_e: Unary[E, F],
     __function_f: Unary[F, R],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -99,8 +93,7 @@ def pipe(
     __function_e: Unary[E, F],
     __function_f: Unary[F, G],
     __function_g: Unary[G, R],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -113,13 +106,11 @@ def pipe(
     __function_f: Unary[F, G],
     __function_g: Unary[G, H],
     __function_h: Unary[H, R],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
-def pipe(innermost: Unary[T, Any], *functions: Unary[Any, Any]) -> Unary[T, Any]:
-    ...
+def pipe(innermost: Unary[T, Any], *functions: Unary[Any, Any]) -> Unary[T, Any]: ...
 
 
 def pipe(innermost: Unary[T, Any], *functions: Unary[Any, Any]) -> Unary[T, Any]:
@@ -163,20 +154,17 @@ def compose_once(outer: Unary[U, R], inner: Unary[T, U]) -> Unary[T, R]:
 
 
 @overload
-def compose(__function_a: Unary[A, R]) -> Unary[A, R]:
-    ...
+def compose(__function_a: Unary[A, R]) -> Unary[A, R]: ...
 
 
 @overload
-def compose(__function_b: Unary[B, R], __function_a: Unary[A, B]) -> Unary[A, R]:
-    ...
+def compose(__function_b: Unary[B, R], __function_a: Unary[A, B]) -> Unary[A, R]: ...
 
 
 @overload
 def compose(
     __function_c: Unary[C, R], __function_b: Unary[B, C], __function_a: Unary[A, B]
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -185,8 +173,7 @@ def compose(
     __function_c: Unary[C, D],
     __function_b: Unary[B, C],
     __function_a: Unary[A, B],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -196,8 +183,7 @@ def compose(
     __function_c: Unary[C, D],
     __function_b: Unary[B, C],
     __function_a: Unary[A, B],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -208,8 +194,7 @@ def compose(
     __function_c: Unary[C, D],
     __function_b: Unary[B, C],
     __function_a: Unary[A, B],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -221,8 +206,7 @@ def compose(
     __function_c: Unary[C, D],
     __function_b: Unary[B, C],
     __function_a: Unary[A, B],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
@@ -235,13 +219,11 @@ def compose(
     __function_c: Unary[C, D],
     __function_b: Unary[B, C],
     __function_a: Unary[A, B],
-) -> Unary[A, R]:
-    ...
+) -> Unary[A, R]: ...
 
 
 @overload
-def compose(outermost: Unary[Any, T], *functions: Unary[Any, Any]) -> Unary[Any, T]:
-    ...
+def compose(outermost: Unary[Any, T], *functions: Unary[Any, Any]) -> Unary[Any, T]: ...
 
 
 def compose(outermost: Unary[Any, T], *functions: Unary[Any, Any]) -> Unary[Any, T]:

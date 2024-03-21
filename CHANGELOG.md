@@ -2,6 +2,24 @@
 
 <!-- changelogging: start -->
 
+## 0.10.0 (2024-03-21)
+
+### Features
+
+- Added `juxt`.
+
+### Changes
+
+- Renamed `always` to `returns`.
+
+- Renamed modules:
+  - `debug` to `debugging`;
+  - `flow` to `flows`.
+
+### Internal
+
+- `is_marker` now accepts `Any` as the argument.
+
 ## 0.9.2 (2024-03-14)
 
 ### Internal

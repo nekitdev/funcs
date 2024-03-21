@@ -76,7 +76,7 @@ class Reraise(SimpleContextManager, Generic[E]):
 
 
 def reraise(error: E, *error_types: AnyErrorType) -> Reraise[E]:
-    """Constructs the [`Reraise[E]`][funcs.flow.Reraise] context manager
+    """Constructs the [`Reraise[E]`][funcs.flows.Reraise] context manager
     that reraises errors of given `error_types` as `error`.
 
     Arguments:
@@ -84,7 +84,7 @@ def reraise(error: E, *error_types: AnyErrorType) -> Reraise[E]:
         *error_types: The error types to reraise.
 
     Returns:
-        The constructed [`Reraise[E]`][funcs.flow.Reraise] context manager.
+        The constructed [`Reraise[E]`][funcs.flows.Reraise] context manager.
     """
     return Reraise(error, error_types)
 
@@ -116,7 +116,7 @@ class ReraiseWith(SimpleContextManager, Generic[E]):
 
 
 def reraise_with(into: Into[E], *error_types: AnyErrorType) -> ReraiseWith[E]:
-    """Constructs the [`ReraiseWith[E]`][funcs.flow.ReraiseWith] context manager
+    """Constructs the [`ReraiseWith[E]`][funcs.flows.ReraiseWith] context manager
     that reraises errors of given `error_types` as `error`, which is computed dynamically
     from the original error.
 
@@ -125,7 +125,7 @@ def reraise_with(into: Into[E], *error_types: AnyErrorType) -> ReraiseWith[E]:
         *error_types: The error types to reraise.
 
     Returns:
-        The constructed [`ReraiseWith[E]`][funcs.flow.ReraiseWith] context manager.
+        The constructed [`ReraiseWith[E]`][funcs.flows.ReraiseWith] context manager.
     """
     return ReraiseWith(into, error_types)
 
@@ -142,12 +142,10 @@ class Suppress:
         pass
 
     @overload
-    def __exit__(self, error_type: None, error: None, traceback: None) -> Literal[False]:
-        ...
+    def __exit__(self, error_type: None, error: None, traceback: None) -> Literal[False]: ...
 
     @overload
-    def __exit__(self, error_type: Type[E], error: E, traceback: Traceback) -> bool:
-        ...
+    def __exit__(self, error_type: Type[E], error: E, traceback: Traceback) -> bool: ...
 
     def __exit__(
         self, error_type: Optional[Type[E]], error: Optional[E], traceback: Optional[Traceback]
@@ -156,14 +154,14 @@ class Suppress:
 
 
 def suppress(*error_types: AnyErrorType) -> Suppress:
-    """Constructs the [`Suppress`][funcs.flow.Suppress] context manager used to suppress
+    """Constructs the [`Suppress`][funcs.flows.Suppress] context manager used to suppress
     errors of given `error_types`.
 
     Arguments:
         *error_types: The error types to suppress.
 
     Returns:
-        The constructed [`Suppress`][funcs.flow.Suppress] context manager.
+        The constructed [`Suppress`][funcs.flows.Suppress] context manager.
     """
     return Suppress(error_types)
 
@@ -184,14 +182,14 @@ class PostProcessing(Generic[R, S]):
 
 
 def post_processing(function: Unary[R, S]) -> PostProcessing[R, S]:
-    """Constructs the [`PostProcessing[R, S]`][funcs.flow.PostProcessing] decorator
+    """Constructs the [`PostProcessing[R, S]`][funcs.flows.PostProcessing] decorator
     which post-processes results of function calls.
 
     Arguments:
         function: The post-processing function.
 
     Returns:
-        The constructed [`PostProcessing[R, S]`][funcs.flow.PostProcessing] decorator.
+        The constructed [`PostProcessing[R, S]`][funcs.flows.PostProcessing] decorator.
     """
     return PostProcessing(function)
 
@@ -213,13 +211,13 @@ class WrapWith:
 
 
 def wrap_with(context_manager: AnyContextManager) -> WrapWith:
-    """Constructs the [`WrapWith`][funcs.flow.WrapWith] decorator that wraps function calls
+    """Constructs the [`WrapWith`][funcs.flows.WrapWith] decorator that wraps function calls
     with the given `context_manager`.
 
     Arguments:
         context_manager: The context manager to wrap function calls with.
 
     Returns:
-        The constructed [`WrapWith`][funcs.flow.WrapWith] decorator.
+        The constructed [`WrapWith`][funcs.flows.WrapWith] decorator.
     """
     return WrapWith(context_manager)

@@ -2,7 +2,7 @@ from operator import methodcaller as standard_method_caller
 from typing import Any, TypeVar, final
 
 from attrs import frozen
-from typing_aliases import DynamicCallable, DynamicTuple, StringDict, Unary
+from typing_aliases import DynamicCallable, DynamicTuple, StringDict
 from typing_extensions import ParamSpec
 
 __all__ = ("caller", "method_caller")
@@ -27,7 +27,7 @@ class Caller:
         return function(*self.args, **self.kwargs)
 
 
-def caller(*args: Any, **kwargs: Any) -> Unary[DynamicCallable[R], R]:
+def caller(*args: Any, **kwargs: Any) -> Caller:
     """Creates a [`Caller`][funcs.callers.Caller] that calls the given
     `function` with `*args` and `**kwargs`.
 

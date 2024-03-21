@@ -3,7 +3,7 @@ from typing import Awaitable, Callable, TypeVar
 from typing_aliases import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary
 from typing_extensions import Never, ParamSpec
 
-__all__ = ("awaiting", "asyncify", "identity", "always", "raises", "flip", "complement")
+__all__ = ("awaiting", "asyncify", "identity", "returns", "raises", "flip", "complement")
 
 T = TypeVar("T")
 U = TypeVar("U")
@@ -56,14 +56,14 @@ def identity(item: T) -> T:
     return item
 
 
-def always(item: T) -> Nullary[T]:
-    """Creates a function that always returns the given `item` when called.
+def returns(item: T) -> Nullary[T]:
+    """Creates a function that returns the given `item` when called.
 
     Arguments:
         item: The item to return.
 
     Returns:
-        The function that always returns the given item.
+        The function that returns the given item.
     """
 
     def return_item() -> T:
