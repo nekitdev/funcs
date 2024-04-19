@@ -3,6 +3,8 @@ from typing import Awaitable, Callable, TypeVar
 from typing_aliases import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary
 from typing_extensions import Never, ParamSpec
 
+from funcs.decorators import wraps
+
 __all__ = ("awaiting", "asyncify", "identity", "returns", "raises", "flip", "complement")
 
 T = TypeVar("T")
@@ -38,6 +40,7 @@ def asyncify(function: Callable[P, R]) -> AsyncCallable[P, R]:
         The wrapped asynchronous function.
     """
 
+    @wraps(function)
     async def async_function(*args: P.args, **kwargs: P.kwargs) -> R:
         return function(*args, **kwargs)
 

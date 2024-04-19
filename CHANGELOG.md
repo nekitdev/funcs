@@ -2,6 +2,16 @@
 
 <!-- changelogging: start -->
 
+## 0.10.1 (2024-04-19)
+
+### Features
+
+- Exported `lru_cache`, `cache` and `cache_typed` from `funcs.decorators`.
+
+### Changes
+
+- `asyncify(function)` now uses `@wraps(function)` under the hood.
+
 ## 0.10.0 (2024-03-21)
 
 ### Features

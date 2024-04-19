@@ -1,7 +1,7 @@
 from functools import lru_cache
 from functools import wraps as standard_wraps
 
-__all__ = ("wraps", "cache", "cache_typed")
+__all__ = ("wraps", "lru_cache", "cache", "cache_typed")
 
 wraps = standard_wraps
 """An alias of the standard `wraps` function that implements wrapping."""

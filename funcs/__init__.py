@@ -6,13 +6,13 @@ __url__ = "https://github.com/nekitdev/funcs"
 __title__ = "funcs"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "0.10.0"
+__version__ = "0.10.1"
 
 from funcs.application import apply, juxt, partial
 from funcs.callers import caller, method_caller
 from funcs.composition import compose, compose_once, pipe, pipe_once
 from funcs.debugging import inspect, tap
-from funcs.decorators import wraps
+from funcs.decorators import cache, cache_typed, lru_cache, wraps
 from funcs.flows import once, post_processing, reraise, reraise_with, suppress, wrap_with
 from funcs.functions import asyncify, awaiting, complement, flip, identity, raises, returns
 from funcs.getters import attribute_getter, item_getter
@@ -44,6 +44,9 @@ __all__ = (
     "tap",
     # decorators
     "wraps",
+    "lru_cache",
+    "cache",
+    "cache_typed",
     # flows
     "once",
     "reraise",
