@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from functools import partial as standard_partial
 from typing import Any, Callable, Tuple, TypeVar, overload
 

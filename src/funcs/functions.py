@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Awaitable, Callable, TypeVar
 
 from typing_aliases import AnyError, AsyncCallable, Binary, GenericPredicate, Nullary

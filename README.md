@@ -1,3 +1,5 @@
+![Image]
+
 # `funcs`
 
 [![License][License Badge]][License]
@@ -16,7 +18,7 @@
 
 **Python 3.8 or above is required.**
 
-### pip
+### `pip`
 
 Installing the library with `pip` is quite simple:
 
@@ -27,31 +29,23 @@ $ pip install funcs
 Alternatively, the library can be installed from source:
 
 ```console
-$ git clone https://github.com/nekitdev/funcs.git
-$ cd funcs
-$ python -m pip install .
+$ pip install git+https://github.com/nekitdev/funcs.git
 ```
 
-### poetry
+Or via cloning the repository:
+
+```console
+$ git clone https://github.com/nekitdev/funcs.git
+$ cd funcs
+$ pip install .
+```
+
+### `uv`
 
 You can add `funcs` as a dependency with the following command:
 
 ```console
-$ poetry add funcs
-```
-
-Or by directly specifying it in the configuration like so:
-
-```toml
-[tool.poetry.dependencies]
-funcs = "^0.10.1"
-```
-
-Alternatively, you can add it directly from the source:
-
-```toml
-[tool.poetry.dependencies.funcs]
-git = "https://github.com/nekitdev/funcs.git"
+$ uv add funcs
 ```
 
 ## Documentation
@@ -79,6 +73,8 @@ If you are interested in contributing to `funcs`, make sure to take a look at th
 ## License
 
 `funcs` is licensed under the MIT License terms. See [License][License] for details.
+
+[Image]: https://github.com/nekitdev/funcs/blob/main/funcs.svg?raw=true
 
 [Email]: mailto:support@nekit.dev
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from functools import reduce as standard_reduce
 from typing import Iterable, TypeVar
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from operator import methodcaller as standard_method_caller
 from typing import Any, TypeVar, final
 
