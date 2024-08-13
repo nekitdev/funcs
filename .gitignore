@@ -65,6 +65,10 @@ site/
 .mypy_cache/
 .pytype/
 
+# formatters
+
+.ruff_cache/
+
 # cython debugging information
 
 cython_debug/
@@ -75,4 +79,4 @@ cython_debug/
 
 # remove if lock file should be included
 
-poetry.lock
+uv.lock

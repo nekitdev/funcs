@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 __all__ = ("increment", "decrement", "is_even", "is_odd")
 
 

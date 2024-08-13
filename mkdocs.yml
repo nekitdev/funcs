@@ -10,17 +10,17 @@ remote_branch: github-pages
 nav:
   - Index: "index.md"
   - Reference:
-    - Application: "reference/application.md"
-    - Callers: "reference/callers.md"
-    - Composition: "reference/composition.md"
-    - Debugging: "reference/debugging.md"
-    - Decorators: "reference/decorators.md"
-    - Flows: "reference/flows.md"
-    - Functions: "reference/functions.md"
-    - Getters: "reference/getters.md"
-    - Primitives: "reference/primitives.md"
-    - Reduction: "reference/reduction.md"
-    - Unpacking: "reference/unpacking.md"
+      - Application: "reference/application.md"
+      - Callers: "reference/callers.md"
+      - Composition: "reference/composition.md"
+      - Debugging: "reference/debugging.md"
+      - Decorators: "reference/decorators.md"
+      - Flows: "reference/flows.md"
+      - Functions: "reference/functions.md"
+      - Getters: "reference/getters.md"
+      - Primitives: "reference/primitives.md"
+      - Reduction: "reference/reduction.md"
+      - Unpacking: "reference/unpacking.md"
   - Changelog: "changelog.md"
   - Security: "security.md"
   - Code of Conduct: "code_of_conduct.md"
@@ -28,7 +28,7 @@ nav:
 
 watch:
   - docs
-  - funcs
+  - src
 
 theme:
   name: material

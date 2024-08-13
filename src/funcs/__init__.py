@@ -1,12 +1,14 @@
 """Functional programming in Python."""
 
+from __future__ import annotations
+
 __description__ = "Functional programming in Python."
 __url__ = "https://github.com/nekitdev/funcs"
 
 __title__ = "funcs"
 __author__ = "nekitdev"
 __license__ = "MIT"
-__version__ = "0.10.1"
+__version__ = "0.11.0"
 
 from funcs.application import apply, juxt, partial
 from funcs.callers import caller, method_caller

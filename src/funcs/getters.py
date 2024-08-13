@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from operator import attrgetter as standard_attribute_getter
 from operator import itemgetter as standard_item_getter
 

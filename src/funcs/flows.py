@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from types import TracebackType as Traceback
 from typing import Callable, Generic, Literal, Optional, Type, TypeVar, final, overload
 
