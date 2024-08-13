@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## [0.11.0](https://github.com/nekitdev/funcs/tree/v0.11.0) (2024-08-13)
+
+### Internal
+
+- Migrated to `src` layout. ([#63](https://github.com/nekitdev/funcs/pull/63))
+
 ## 0.10.1 (2024-04-19)
 
 ### Features
